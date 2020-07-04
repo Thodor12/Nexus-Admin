@@ -1,0 +1,823 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://thenexusavenger.github.io/Nexus-Admin/creating-commands/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Creating Commands - Nexus Admin Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#creating-commands" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://thenexusavenger.github.io/Nexus-Admin" title="Nexus Admin Documentation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Nexus Admin Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Creating Commands
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/TheNexusAvenger/Nexus-Admin/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TheNexusAvenger/Nexus-Admin
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://thenexusavenger.github.io/Nexus-Admin" title="Nexus Admin Documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Nexus Admin Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/TheNexusAvenger/Nexus-Admin/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TheNexusAvenger/Nexus-Admin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Creating Commands
+      </label>
+    
+    <a href="./" title="Creating Commands" class="md-nav__link md-nav__link--active">
+      Creating Commands
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nexus-admin-method" class="md-nav__link">
+    Nexus Admin Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmdr-method" class="md-nav__link">
+    Cmdr Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-type-nexusadminplayers" class="md-nav__link">
+    Custom type: nexusAdminPlayers
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      API Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        API Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/server-api/" title="Server API" class="md-nav__link">
+      Server API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/client-api/" title="Client API" class="md-nav__link">
+      Client API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/authorization/" title="Authorization" class="md-nav__link">
+      Authorization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/clientmessages/" title="ClientMessages" class="md-nav__link">
+      ClientMessages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/executor/" title="Executor" class="md-nav__link">
+      Executor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/featureflags/" title="FeatureFlags" class="md-nav__link">
+      FeatureFlags
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/filter/" title="Filter" class="md-nav__link">
+      Filter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/gui/" title="Gui" class="md-nav__link">
+      Gui
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/logs/" title="Logs" class="md-nav__link">
+      Logs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/registry/" title="Registry" class="md-nav__link">
+      Registry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/replicator/" title="Replicator" class="md-nav__link">
+      Replicator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/servermessages/" title="ServerMessages" class="md-nav__link">
+      ServerMessages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/time/" title="Time" class="md-nav__link">
+      Time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-reference/modules/types/" title="Types" class="md-nav__link">
+      Types
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../frequently-asked-questions/" title="Frequently Asked Questions" class="md-nav__link">
+      Frequently Asked Questions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../included-feature-flags/" title="Included Feature Flags" class="md-nav__link">
+      Included Feature Flags
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../loading.md" title="Loading" class="md-nav__link">
+      Loading
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nexus-admin-method" class="md-nav__link">
+    Nexus Admin Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmdr-method" class="md-nav__link">
+    Cmdr Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-type-nexusadminplayers" class="md-nav__link">
+    Custom type: nexusAdminPlayers
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/TheNexusAvenger/Nexus-Admin/edit/master/docs/creating-commands.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="creating-commands">Creating Commands</h1>
+<p>The intended method for registering commands is 
+using tables of data. This can be done using
+Nexus Admin's structure or Cmdr's structure.
+You can mix-and-match between them assuming
+there is no overlap of the data that is populated.
+Nexus Admin's method mainly exist for backwards compatibility
+with old versions.</p>
+<h2 id="nexus-admin-method">Nexus Admin Method</h2>
+<p>Nexus Admin's data structure supports the following elements:<br>
+- <code>string | List&lt;string&gt; Keyword</code> - Keyword or keywords for the command.<br>
+- <code>string | List&lt;string&gt; Prefix (optional)</code> - Prefix that must be before the command when executing from the chat.
+- <code>string Category (optional)</code> - Category for the command. Mainly used for organization when displaying commands.<br>
+- <code>string Description (optional)</code> - Description for the command. Mainly used for organization when displaying commands.<br>
+- <code>number AdminLevel (optional)</code> - Admin level required to run the command. Be aware anyone can run a command if the admin level is not defined.<br>
+- <code>List&lt;</code><a href="https://eryn.io/Cmdr/api/Registry.html#commandargument"><code>CommandArgument</code></a><code>&gt; Arguments (optional)</code> - Arguments used to run the command.<br>
+- <code>function Run (optional)</code> - Runs the command.</p>
+<p>The <code>Run</code> method is called with 2 parameters: The reference
+to the command object and a <a href="https://eryn.io/Cmdr/api/CommandContext.html#commandcontext"><code>CommandContext</code></a>.
+Additional parameters are passed for each argument specified with
+<code>Args</code> or <code>Arguments</code>. The examples above show this.</p>
+<div class="codehilite"><pre><span></span><span class="c1">--Get the Nexus Admin API.</span>
+<span class="c1">--Use a ModuleScript and parent this to the server loaded.</span>
+<span class="kd">local</span> <span class="n">NexusAdminAPI</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ServerScriptService&quot;</span><span class="p">):</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;NexusAdmin&quot;</span><span class="p">))</span>
+
+<span class="c1">--For the client, use:</span>
+<span class="c1">--Use a local script and parent this to anywhere that runs player scripts, or use a ModuleScript required by a LocalScript.</span>
+<span class="c1">--local NexusAdminAPI = require(game:GetService(&quot;ReplicatedStorage&quot;):WaitForChild(&quot;NexusAdminClient&quot;))</span>
+
+<span class="c1">--Create the command data.</span>
+<span class="kd">local</span> <span class="n">CommandData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Keyword</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="c1">--Could use Keyword = {&quot;test1&quot;,&quot;test2&quot;} for multiple names.</span>
+    <span class="n">Prefix</span> <span class="o">=</span> <span class="n">NexusAdminAPI</span><span class="p">.</span><span class="n">Configuration</span><span class="p">.</span><span class="n">CommandPrefix</span><span class="p">,</span> <span class="c1">--Could use {NexusAdminAPI.Configuration.CommandPrefix,&quot;!&quot;} for multiple prefixes. Recommended to get the prefix from the configuration for consistency.</span>
+    <span class="n">Category</span> <span class="o">=</span> <span class="s2">&quot;TestCommands&quot;</span><span class="p">,</span>
+    <span class="n">Description</span> <span class="o">=</span> <span class="s2">&quot;My first test command!&quot;</span><span class="p">,</span>
+    <span class="n">AdminLevel</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">Arguments</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span>
+            <span class="n">Type</span> <span class="o">=</span> <span class="s2">&quot;nexusAdminPlayers&quot;</span><span class="p">,</span> <span class="c1">--See below for nexusAdminPlayers vs players</span>
+            <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Players&quot;</span><span class="p">,</span>
+            <span class="n">Description</span> <span class="o">=</span> <span class="s2">&quot;Players execute on.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="n">Type</span> <span class="o">=</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Message&quot;</span><span class="p">,</span>
+            <span class="n">Description</span> <span class="o">=</span> <span class="s2">&quot;Message to use.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="n">Run</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="n">CommandContext</span><span class="p">,</span><span class="n">Players</span><span class="p">,</span><span class="n">Message</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Raw command: &quot;</span><span class="o">..</span><span class="n">CommandContext</span><span class="p">.</span><span class="n">RawText</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Players: &quot;</span><span class="o">..#</span><span class="n">Players</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message: &quot;</span><span class="o">..</span><span class="n">Message</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">,</span>
+<span class="p">}</span>   
+
+<span class="c1">--Load the command.</span>
+<span class="n">NexusAdminAPI</span><span class="p">.</span><span class="n">Registry</span><span class="p">:</span><span class="n">LoadCommand</span><span class="p">(</span><span class="n">CommandData</span><span class="p">)</span>
+
+<span class="c1">--Return true to make the ModuleScript not fail to load.</span>
+<span class="kr">return</span> <span class="kc">true</span>
+</pre></div>
+
+
+<h2 id="cmdr-method">Cmdr Method</h2>
+<p>Any command passed into Nexus Admin's registry to load
+has to be parsed to Cmdr's structure. Cmdr <a href="https://eryn.io/Cmdr/api/Registry.html#commanddefinition"><code>CommandDefinition</code>s</a>
+can also be passed into the registry. If there are considerations
+of moving to Cmdr in the future instead of Nexus Admin,
+Cmdr's structure should be used to minimize the time
+converting code. <code>Prefix</code> and <code>AdminLevel</code> from the
+Nexus Admin method can also be included for Nexus Admin.</p>
+<div class="codehilite"><pre><span></span><span class="c1">--Get the Nexus Admin API.</span>
+<span class="c1">--Use a ModuleScript and parent this to the server loaded.</span>
+<span class="kd">local</span> <span class="n">NexusAdminAPI</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ServerScriptService&quot;</span><span class="p">):</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;NexusAdmin&quot;</span><span class="p">))</span>
+
+<span class="c1">--For the client, use:</span>
+<span class="c1">--Use a local script and parent this to anywhere that runs player scripts, or use a ModuleScript required by a LocalScript.</span>
+<span class="c1">--local NexusAdminAPI = require(game:GetService(&quot;ReplicatedStorage&quot;):WaitForChild(&quot;NexusAdminClient&quot;))</span>
+
+<span class="c1">--Create the command data.</span>
+<span class="kd">local</span> <span class="n">CommandData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+    <span class="n">Aliases</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;test1&quot;</span><span class="p">,</span><span class="s2">&quot;test2&quot;</span><span class="p">},</span>
+    <span class="n">Description</span> <span class="o">=</span> <span class="s2">&quot;My first test command!&quot;</span><span class="p">,</span>
+    <span class="n">Group</span> <span class="o">=</span> <span class="s2">&quot;TestCommands&quot;</span><span class="p">,</span>
+    <span class="n">Args</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span>
+            <span class="n">Type</span> <span class="o">=</span> <span class="s2">&quot;nexusAdminPlayers&quot;</span><span class="p">,</span> <span class="c1">--See below for nexusAdminPlayers vs players</span>
+            <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Players&quot;</span><span class="p">,</span>
+            <span class="n">Description</span> <span class="o">=</span> <span class="s2">&quot;Players execute on.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="n">Type</span> <span class="o">=</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Message&quot;</span><span class="p">,</span>
+            <span class="n">Description</span> <span class="o">=</span> <span class="s2">&quot;Message to use.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="n">Run</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="n">CommandContext</span><span class="p">,</span><span class="n">Players</span><span class="p">,</span><span class="n">Message</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Raw command: &quot;</span><span class="o">..</span><span class="n">CommandContext</span><span class="p">.</span><span class="n">RawText</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Players: &quot;</span><span class="o">..#</span><span class="n">Players</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message: &quot;</span><span class="o">..</span><span class="n">Message</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">,</span>
+
+    <span class="c1">--Optional for Nexus Admin.</span>
+    <span class="n">Prefix</span> <span class="o">=</span> <span class="n">NexusAdminAPI</span><span class="p">.</span><span class="n">Configuration</span><span class="p">.</span><span class="n">CommandPrefix</span><span class="p">,</span> <span class="c1">--Could use {NexusAdminAPI.Configuration.CommandPrefix,&quot;!&quot;} for multiple prefixes. Recommended to get the prefix from the configuration for consistency.</span>
+    <span class="n">AdminLevel</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+<span class="p">}</span>   
+
+<span class="c1">--Load the command.</span>
+<span class="n">NexusAdminAPI</span><span class="p">.</span><span class="n">Registry</span><span class="p">:</span><span class="n">LoadCommand</span><span class="p">(</span><span class="n">CommandData</span><span class="p">)</span>
+
+<span class="c1">--Return true to make the ModuleScript not fail to load.</span>
+<span class="kr">return</span> <span class="kc">true</span>
+</pre></div>
+
+
+<h2 id="custom-type-nexusadminplayers">Custom type: <code>nexusAdminPlayers</code></h2>
+<p>The <code>players</code> type in Cmdr has several limitations that made it
+not ideal, including:<br>
+- Shorthands (like <code>me</code>,<code>admins</code>) aren't extendable, preventing custom ones like <code>admins</code> and <code>nonadmins</code> from being used.<br>
+- Teams and players can't be mixed (ex: <code>:god me,%green,%blue</code>).<br>
+- <code>random</code> was rejected from being implemented. Those using old versions would have to get used to <code>?</code>.</p>
+<p><code>nexusAdminPlayers</code> can be used in place of <code>players</code> in any of the
+arguments for handling players while still providing proper parsing
+and auto-complete. For specific integrations, custom shorthands can
+be added.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../api-reference/server-api/" title="Server API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Server API
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
